@@ -8,6 +8,12 @@ const ToDo = () => {
             To the left the user should be able to choose
             tasks, add and delete them */}
             <aside className={styles.toDoList}>
+                <input
+                    type="search"
+                    name=""
+                    id=""
+                    className={styles.toDoList__Search}
+                />
                 <ToDoListItem />
                 <ToDoListItem />
                 <ToDoListItem />
