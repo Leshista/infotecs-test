@@ -4,6 +4,9 @@
     gap: 3.5rem;
 }
 .toDoList {
+    resize: horizontal;
+    overflow: auto;
+    max-width: 100rem;
     border: 1px solid black;
 }
 .toDoList {
