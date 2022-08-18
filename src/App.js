@@ -9,9 +9,7 @@ const App = () => {
             <header className={styles.header}>
                 <h1 className={styles.title}>React To Do List</h1>
             </header>
-            <main className={styles.main}>
-                <ToDo />
-            </main>
+            <ToDo />
         </>
     );
 };

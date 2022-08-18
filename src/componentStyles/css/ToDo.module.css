@@ -1,0 +1,1 @@
+.toDo{display:grid;grid-template-columns:1fr 4fr;gap:3.5rem}.toDoList{border:1px solid #000}.toDoList__Buttons{display:grid;grid-template-columns:1fr 1fr;gap:2rem;text-align:center;padding:0 2rem 1rem 2rem}.toDoList__Add{font-size:2rem}.toDoList__Delete{font-size:2rem}.toDoChanging{border:1px solid #000}
