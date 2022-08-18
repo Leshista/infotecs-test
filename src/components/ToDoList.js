@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from '../componentStyles/css/ToDoList.module.css';
 import ToDoListItem from './ToDoListItem';
 
-const ToDoList = () => {
+const ToDoList = ({ activeItem, setActiveItem }) => {
     // In the left block the user should be
     // able to choose tasks, add and delete them
 
@@ -11,9 +11,10 @@ const ToDoList = () => {
 
     // Handlers
     const addTodoHandler = () => {
-        setTodos([...todos, {}]);
+        setTodos([...todos, { id: todos.length }]);
     };
-    // const deleteTodoHandler = () => setTodos(filter(todos));
+    const deleteTodoHandler = () =>
+        setTodos(todos.filter((todo) => todo.id !== activeItem));
 
     return (
         <aside className={styles.toDoList}>
@@ -27,6 +28,8 @@ const ToDoList = () => {
                 <ToDoListItem
                     id={todos.indexOf(todo)}
                     key={todos.indexOf(todo)}
+                    activeItem={activeItem}
+                    setActiveItem={setActiveItem}
                 />
             ))}
             <div className={styles.toDoList__Buttons}>
@@ -36,7 +39,12 @@ const ToDoList = () => {
                 >
                     Add
                 </button>
-                <button className={styles.toDoList__Delete}>Delete</button>
+                <button
+                    className={styles.toDoList__Delete}
+                    onClick={deleteTodoHandler}
+                >
+                    Delete
+                </button>
             </div>
         </aside>
     );
