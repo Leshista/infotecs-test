@@ -1,7 +1,17 @@
-import './App.css';
+import styles from './App.module.css';
+import ToDo from './components/ToDo';
 
-function App() {
-    return <div></div>;
-}
+const App = () => {
+    return (
+        <>
+            <header className={styles.header}>
+                <h1 className={styles.title}>React To Do List</h1>
+            </header>
+            <main className={styles.main}>
+                <ToDo />
+            </main>
+        </>
+    );
+};
 
 export default App;
