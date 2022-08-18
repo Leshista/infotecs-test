@@ -1,3 +1,12 @@
 .toDoChanging {
     border: 1px solid black;
+    &__Title {
+        text-align: center;
+        font-size: 4rem;
+        line-height: 0;
+    }
+    &__Text {
+        padding: 0 2rem;
+        font-size: 3rem;
+    }
 }

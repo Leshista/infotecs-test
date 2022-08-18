@@ -2,12 +2,13 @@
     resize: horizontal;
     overflow: auto;
     max-width: 100rem;
+    min-width: fit-content;
     border: 1px solid black;
     &__Search {
         margin: 2rem 2rem 0 2rem;
         padding: 0.5rem;
         width: 84%;
-        font-size: 2.3rem;
+        font-size: 3rem;
     }
     &__Buttons {
         display: grid;
@@ -17,9 +18,9 @@
         padding: 1rem 2rem 1rem 2rem;
     }
     &__Add {
-        font-size: 2rem;
+        font-size: 3rem;
     }
     &__Delete {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 }
