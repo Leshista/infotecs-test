@@ -10,7 +10,7 @@
     }
     &__RedactingTitle {
         font-size: 5rem;
-        line-height: 1.5;
+        line-height: 1.47;
         font-weight: bold;
         text-align: center;
         border: none;
@@ -23,12 +23,14 @@
     &__Text {
         padding: 1rem 2rem;
         font-size: 3rem;
+        line-height: 1.5;
     }
     &__RedactingText {
         resize: none;
-        margin-left: 2rem;
+        margin-left: 1rem 2rem;
         padding: 2rem;
         font-size: 3rem;
+        line-height: 0.8;
         width: 90%;
         text-align: center;
         border: none;
