@@ -20,13 +20,13 @@ const ToDoChanging = ({
     const titleUnclicked = () => setTitleIsClicked(false);
     const textClicked = () => setTextIsClicked(true);
     const textUnclicked = () => setTextIsClicked(false);
-    const titleKeyPress = (e) =>
+    const titleKeyUp = (e) =>
         e.key === 'Enter'
             ? setTitleIsClicked(false)
             : setActiveItemTitle(
                   document.querySelector('#toDoChanging__RedactingTitle').value
               );
-    const textKeyPress = (e) =>
+    const textKeyUp = (e) =>
         e.key === 'Enter'
             ? setTextIsClicked(false)
             : setActiveItemText(
@@ -42,7 +42,7 @@ const ToDoChanging = ({
                     id="toDoChanging__RedactingTitle"
                     className={styles.toDoChanging__RedactingTitle}
                     onBlur={titleUnclicked}
-                    onKeyPress={titleKeyPress}
+                    onKeyUp={titleKeyUp}
                 />
             ) : (
                 <h2
@@ -59,11 +59,11 @@ const ToDoChanging = ({
                     id="toDoChanging__RedactingText"
                     className={styles.toDoChanging__RedactingText}
                     onBlur={textUnclicked}
-                    onKeyPress={textKeyPress}
+                    onKeyUp={textKeyUp}
                 ></textarea>
             ) : (
                 <p className={styles.toDoChanging__Text} onClick={textClicked}>
-                    <p>{activeItemText}</p>
+                    {activeItemText}
                 </p>
             )}
         </section>
