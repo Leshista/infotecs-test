@@ -26,8 +26,8 @@ const ToDoList = ({ activeItem, setActiveItem }) => {
             />
             {todos.map((todo) => (
                 <ToDoListItem
-                    id={todos.indexOf(todo)}
-                    key={todos.indexOf(todo)}
+                    id={todo.id}
+                    key={todo.id}
                     activeItem={activeItem}
                     setActiveItem={setActiveItem}
                 />

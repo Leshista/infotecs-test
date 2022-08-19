@@ -14,7 +14,7 @@ const ToDoListItem = ({ activeItem, setActiveItem, id }) => {
             onClick={activateItemHandler}
             id={id}
             style={
-                activeItem == id
+                activeItem === id
                     ? { backgroundColor: 'red' }
                     : { backgroundColor: 'white' }
             }
