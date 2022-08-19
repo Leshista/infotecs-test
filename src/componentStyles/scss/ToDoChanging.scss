@@ -1,12 +1,31 @@
 .toDoChanging {
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     &__Title {
         text-align: center;
         font-size: 4rem;
         line-height: 0;
     }
+    &__RedactingTitle {
+        text-align: center;
+        font-size: 4rem;
+        line-height: 0;
+        border: none;
+        outline: none;
+    }
     &__Text {
         padding: 0 2rem;
         font-size: 3rem;
+    }
+    &__RedactingText {
+        resize: none;
+        margin-left: 2rem;
+        padding: 2rem;
+        font-size: 3rem;
+        width: 90%;
+        border: none;
+        outline: none;
     }
 }

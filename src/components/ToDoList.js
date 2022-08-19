@@ -2,7 +2,14 @@ import { useState } from 'react';
 import styles from '../componentStyles/css/ToDoList.module.css';
 import ToDoListItem from './ToDoListItem';
 
-const ToDoList = ({ activeItem, setActiveItem }) => {
+const ToDoList = ({
+    activeItem,
+    setActiveItem,
+    activeItemTitle,
+    setActiveItemTitle,
+    activeItemText,
+    setActiveItemText,
+}) => {
     // In the left block the user should be
     // able to choose tasks, add and delete them
 
@@ -32,6 +39,10 @@ const ToDoList = ({ activeItem, setActiveItem }) => {
                     key={todo.id}
                     activeItem={activeItem}
                     setActiveItem={setActiveItem}
+                    activeItemTitle={activeItemTitle}
+                    setActiveItemTitle={setActiveItemTitle}
+                    activeItemText={activeItemText}
+                    setActiveItemText={setActiveItemText}
                 />
             ))}
             {/* Add and Delete buttons */}

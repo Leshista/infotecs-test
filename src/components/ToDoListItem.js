@@ -1,11 +1,26 @@
+import { useState } from 'react';
 import styles from '../componentStyles/css/ToDoListItem.module.css';
 
-const ToDoListItem = ({ activeItem, setActiveItem, id }) => {
+const ToDoListItem = ({
+    activeItem,
+    setActiveItem,
+    id,
+    activeItemTitle,
+    setActiveItemTitle,
+    activeItemText,
+    setActiveItemText,
+}) => {
+    // States
+    const [todoTitle, setTodoTitle] = useState('New Task');
+    const [todoText, setTodoText] = useState('Please, add something!');
+
     // Handlers
     const activateItemHandler = () => {
         // When the user clicks on tasks it'll become active and highlighted
         setTimeout(() => {
             setActiveItem(id);
+            setActiveItemTitle(todoTitle);
+            setActiveItemText(todoText);
         }, 0);
     };
 
@@ -20,7 +35,7 @@ const ToDoListItem = ({ activeItem, setActiveItem, id }) => {
                     : { backgroundColor: 'white' } // This'll highlight/unhighlight task based on activeItem state
             }
         >
-            <p className={styles.toDoList__text}>New Task</p>
+            <p className={styles.toDoList__text}>{todoTitle}</p>
         </article>
     );
 };

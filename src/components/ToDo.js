@@ -8,11 +8,25 @@ const ToDo = () => {
 
     // States
     const [activeItem, setActiveItem] = useState(); // This'll allow selection of task and redacting it
+    const [activeItemTitle, setActiveItemTitle] = useState('');
+    const [activeItemText, setActiveItemText] = useState('');
 
     return (
         <main className={styles.toDo}>
-            <ToDoList setActiveItem={setActiveItem} activeItem={activeItem} />
-            <ToDoChanging />
+            <ToDoList
+                activeItem={activeItem}
+                setActiveItem={setActiveItem}
+                activeItemTitle={activeItemTitle}
+                setActiveItemTitle={setActiveItemTitle}
+                activeItemText={activeItemText}
+                setActiveItemText={setActiveItemText}
+            />
+            <ToDoChanging
+                activeItemTitle={activeItemTitle}
+                setActiveItemTitle={setActiveItemTitle}
+                activeItemText={activeItemText}
+                setActiveItemText={setActiveItemText}
+            />
         </main>
     );
 };
