@@ -7,23 +7,25 @@ const ToDoList = ({ activeItem, setActiveItem }) => {
     // able to choose tasks, add and delete them
 
     // States
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState([]); // Render todos based on object with all the todos
 
     // Handlers
     const addTodoHandler = () => {
         setTodos([...todos, { id: todos.length }]);
-    };
+    }; // Add enw todo to the object; Object is a state, so it wil autorender
     const deleteTodoHandler = () =>
-        setTodos(todos.filter((todo) => todo.id !== activeItem));
+        setTodos(todos.filter((todo) => todo.id !== activeItem)); // Delete todo from object via filtering it
 
     return (
         <aside className={styles.toDoList}>
+            {/* Searchbar */}
             <input
                 type="search"
                 name=""
                 id=""
                 className={styles.toDoList__Search}
             />
+            {/* Mapping todos object and rendering tasks */}
             {todos.map((todo) => (
                 <ToDoListItem
                     id={todo.id}
@@ -32,6 +34,7 @@ const ToDoList = ({ activeItem, setActiveItem }) => {
                     setActiveItem={setActiveItem}
                 />
             ))}
+            {/* Add and Delete buttons */}
             <div className={styles.toDoList__Buttons}>
                 <button
                     className={styles.toDoList__Add}

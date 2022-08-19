@@ -7,7 +7,7 @@ const ToDo = () => {
     // I split the whole container into two blocks
 
     // States
-    const [activeItem, setActiveItem] = useState();
+    const [activeItem, setActiveItem] = useState(); // This'll allow selection of task and redacting it
 
     return (
         <main className={styles.toDo}>
