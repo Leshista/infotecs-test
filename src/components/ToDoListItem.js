@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from '../componentStyles/css/ToDoListItem.module.css';
 
 const ToDoListItem = ({

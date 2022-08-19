@@ -29,7 +29,9 @@ const ToDo = () => {
                 setTodos={setTodos}
                 activeItem={activeItem}
                 activeItemTitle={activeItemTitle}
+                setActiveItemTitle={setActiveItemTitle}
                 activeItemText={activeItemText}
+                setActiveItemText={setActiveItemText}
             />
         </main>
     );

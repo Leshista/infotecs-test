@@ -5,7 +5,9 @@ const ToDoChanging = ({
     setTodos,
     activeItem,
     activeItemTitle,
+    setActiveItemTitle,
     activeItemText,
+    setActiveItemText,
 }) => {
     // In the right the user should
     //  be able to change tasks'
@@ -15,13 +17,25 @@ const ToDoChanging = ({
     // Functions
     const updateTodo = (change) => {
         const newTodos = [...todos];
-        change === 'title'
-            ? (newTodos[activeItem].title = document.querySelector(
-                  '#toDoChanging__RedactingTitle'
-              ).value)
-            : (newTodos[activeItem].text = document.querySelector(
-                  '#toDoChanging__RedactingText'
-              ).value);
+        switch (change) {
+            case 'title':
+                newTodos[activeItem].title = document.querySelector(
+                    '#toDoChanging__RedactingTitle'
+                ).value;
+                setActiveItemTitle(
+                    document.querySelector('#toDoChanging__RedactingTitle')
+                        .value
+                );
+                break;
+            default:
+                newTodos[activeItem].text = document.querySelector(
+                    '#toDoChanging__RedactingText'
+                ).value;
+                setActiveItemText(
+                    document.querySelector('#toDoChanging__RedactingText').value
+                );
+                break;
+        }
         setTodos(newTodos);
     };
 
