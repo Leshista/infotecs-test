@@ -35,7 +35,6 @@ const ToDoChanging = ({
     const textUnclicked = () => setTextIsClicked(false);
     const titleKeyUp = (e) =>
         e.key === 'Enter' ? setTitleIsClicked(false) : updateTodo('title');
-    console.log(todos);
     const textKeyUp = (e) =>
         e.key === 'Enter' ? setTextIsClicked(false) : updateTodo('text');
 
