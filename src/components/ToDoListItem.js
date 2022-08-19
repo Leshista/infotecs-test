@@ -5,22 +5,18 @@ const ToDoListItem = ({
     activeItem,
     setActiveItem,
     id,
-    activeItemTitle,
+    title,
+    text,
     setActiveItemTitle,
-    activeItemText,
     setActiveItemText,
 }) => {
-    // States
-    const [todoTitle, setTodoTitle] = useState('New Task');
-    const [todoText, setTodoText] = useState('Please, add something!');
-
     // Handlers
     const activateItemHandler = () => {
         // When the user clicks on tasks it'll become active and highlighted
         setTimeout(() => {
             setActiveItem(id);
-            setActiveItemTitle(todoTitle);
-            setActiveItemText(todoText);
+            setActiveItemTitle(title);
+            setActiveItemText(text);
         }, 0);
     };
 
@@ -35,7 +31,7 @@ const ToDoListItem = ({
                     : { backgroundColor: 'white' } // This'll highlight/unhighlight task based on activeItem state
             }
         >
-            <p className={styles.toDoList__text}>{todoTitle}</p>
+            <p className={styles.toDoList__text}>{title}</p>
         </article>
     );
 };

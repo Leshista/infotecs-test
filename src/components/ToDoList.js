@@ -3,22 +3,26 @@ import styles from '../componentStyles/css/ToDoList.module.css';
 import ToDoListItem from './ToDoListItem';
 
 const ToDoList = ({
+    todos,
+    setTodos,
     activeItem,
     setActiveItem,
-    activeItemTitle,
     setActiveItemTitle,
-    activeItemText,
     setActiveItemText,
 }) => {
     // In the left block the user should be
     // able to choose tasks, add and delete them
 
-    // States
-    const [todos, setTodos] = useState([]); // Render todos based on object with all the todos
-
     // Handlers
     const addTodoHandler = () => {
-        setTodos([...todos, { id: todos.length }]);
+        setTodos([
+            ...todos,
+            {
+                id: todos.length,
+                title: 'New Task',
+                text: 'Please, write something!',
+            },
+        ]);
     }; // Add enw todo to the object; Object is a state, so it wil autorender
     const deleteTodoHandler = () =>
         setTodos(todos.filter((todo) => todo.id !== activeItem)); // Delete todo from object via filtering it
@@ -37,11 +41,11 @@ const ToDoList = ({
                 <ToDoListItem
                     id={todo.id}
                     key={todo.id}
+                    title={todo.title}
+                    text={todo.text}
                     activeItem={activeItem}
                     setActiveItem={setActiveItem}
-                    activeItemTitle={activeItemTitle}
                     setActiveItemTitle={setActiveItemTitle}
-                    activeItemText={activeItemText}
                     setActiveItemText={setActiveItemText}
                 />
             ))}
