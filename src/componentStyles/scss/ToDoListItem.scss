@@ -4,6 +4,11 @@
     line-height: 2;
     border-radius: 15px;
     margin: 2rem 1rem;
+    transition-property: all;
+    transition-duration: 500ms;
+    &:hover {
+        transform: scale(1.05);
+    }
     p {
         overflow: hidden;
         white-space: nowrap;

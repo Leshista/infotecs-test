@@ -1,3 +1,16 @@
+@mixin button {
+    img {
+        &:hover {
+            background: #f0d9ff;
+            border-radius: 15px;
+            transition-property: all;
+            transition-duration: 500ms;
+            transform: scale(1.1);
+        }
+        width: 6.5rem;
+    }
+}
+
 .toDoList {
     grid-area: list;
     resize: horizontal;
@@ -9,10 +22,15 @@
     &__Search {
         margin: 2rem 2rem 0 2rem;
         padding: 0.5rem;
-        width: 90%;
+        width: 87%;
         font-size: 3rem;
         border-radius: 10px;
         background-color: #f0d9ff;
+        transition-property: all;
+        transition-duration: 500ms;
+        &:hover {
+            transform: scale(1.05);
+        }
     }
     &__Buttons {
         display: grid;
@@ -22,13 +40,12 @@
         padding: 1rem 2rem 1rem 2rem;
     }
     &__Add {
-        font-size: 3rem;
-        background-color: #f0d9ff;
-        border-radius: 15px;
+        @include button;
+        img {
+            width: 8rem;
+        }
     }
     &__Delete {
-        font-size: 3rem;
-        background-color: #f0d9ff;
-        border-radius: 15px;
+        @include button;
     }
 }

@@ -51,18 +51,21 @@ const ToDoList = ({
             ))}
             {/* Add and Delete buttons */}
             <div className={styles.toDoList__Buttons}>
-                <button
-                    className={styles.toDoList__Add}
-                    onClick={addTodoHandler}
-                >
-                    Add
-                </button>
-                <button
+                <div className={styles.toDoList__Add} onClick={addTodoHandler}>
+                    <img
+                        src="http://cdn.onlinewebfonts.com/svg/img_517324.png"
+                        alt="Add"
+                    />
+                </div>
+                <div
                     className={styles.toDoList__Delete}
                     onClick={deleteTodoHandler}
                 >
-                    Delete
-                </button>
+                    <img
+                        src="https://www.pinclipart.com/picdir/big/315-3152807_trash-comments-clipart.png"
+                        alt="Delete"
+                    />
+                </div>
             </div>
         </aside>
     );
