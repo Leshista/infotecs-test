@@ -2,7 +2,9 @@
     padding: 1rem 2rem;
     font-size: 3rem;
     line-height: 2;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 }
