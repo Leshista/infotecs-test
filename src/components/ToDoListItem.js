@@ -12,6 +12,7 @@ const ToDoListItem = ({
     // Handlers
     const activateItemHandler = () => {
         // When the user clicks on tasks it'll become active and highlighted
+        // Also it sets the states responsible for remembering content
         setTimeout(() => {
             setActiveItem(id);
             setActiveItemTitle(title);

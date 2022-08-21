@@ -16,6 +16,7 @@ const ToDoChanging = ({
 
     // Functions
     const updateTodo = (change) => {
+        // This function changes text/title of the active item in the todos object, sets the activeItemTitle/activeItemText, automatically rerendering the page afterwards
         const newTodos = [...todos];
         switch (change) {
             case 'title':
@@ -40,13 +41,20 @@ const ToDoChanging = ({
     };
 
     // States
+
+    // States below are for knowing if title/text is clicked
     const [titleIsClicked, setTitleIsClicked] = useState(false);
     const [textIsClicked, setTextIsClicked] = useState(false);
+
     // Handlers
+
+    // The handlers below are for setting on/off 'clicked' state
     const titleClicked = () => setTitleIsClicked(true);
     const titleUnclicked = () => setTitleIsClicked(false);
     const textClicked = () => setTextIsClicked(true);
     const textUnclicked = () => setTextIsClicked(false);
+
+    // The handlers below are waiting for input on input/textarea and update the values or remove focus from items based on key pressed
     const titleKeyUp = (e) =>
         e.key === 'Enter' ? setTitleIsClicked(false) : updateTodo('title');
     const textKeyUp = (e) =>
@@ -54,6 +62,7 @@ const ToDoChanging = ({
 
     return (
         <section className={styles.toDoChanging}>
+            {/* I use conditional rendering to show plain text or input/textarea based on user's focus */}
             {titleIsClicked ? (
                 <input
                     type="text"
