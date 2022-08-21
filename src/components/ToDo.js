@@ -6,6 +6,32 @@ import ToDoList from './ToDoList';
 const ToDo = () => {
     // I split the whole container into two blocks
 
+    // Functions
+    const updateTodo = (change) => {
+        // This function changes text/title of the active item in the todos object, sets the activeItemTitle/activeItemText, automatically rerendering the page afterwards
+        const newTodos = [...todos];
+        switch (change) {
+            case 'title':
+                newTodos[activeItem].title = document.querySelector(
+                    '#toDoChanging__RedactingTitle'
+                ).value;
+                setActiveItemTitle(
+                    document.querySelector('#toDoChanging__RedactingTitle')
+                        .value
+                );
+                break;
+            default:
+                newTodos[activeItem].text = document.querySelector(
+                    '#toDoChanging__RedactingText'
+                ).value;
+                setActiveItemText(
+                    document.querySelector('#toDoChanging__RedactingText').value
+                );
+                break;
+        }
+        setTodos(newTodos);
+    };
+
     // States
     const [todos, setTodos] = useState([]); // Render todos based on object with all the todos
     const [activeItem, setActiveItem] = useState(); // This'll allow selection of task and redacting it
@@ -17,6 +43,7 @@ const ToDo = () => {
             <ToDoList
                 todos={todos}
                 setTodos={setTodos}
+                updateTodo={updateTodo}
                 activeItem={activeItem}
                 setActiveItem={setActiveItem}
                 activeItemTitle={activeItemTitle}
@@ -25,13 +52,9 @@ const ToDo = () => {
                 setActiveItemText={setActiveItemText}
             />
             <ToDoChanging
-                todos={todos}
-                setTodos={setTodos}
-                activeItem={activeItem}
+                updateTodo={updateTodo}
                 activeItemTitle={activeItemTitle}
-                setActiveItemTitle={setActiveItemTitle}
                 activeItemText={activeItemText}
-                setActiveItemText={setActiveItemText}
             />
         </main>
     );

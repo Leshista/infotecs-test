@@ -1,44 +1,10 @@
 import { useState } from 'react';
 import styles from '../componentStyles/css/ToDoChanging.module.css';
-const ToDoChanging = ({
-    todos,
-    setTodos,
-    activeItem,
-    activeItemTitle,
-    setActiveItemTitle,
-    activeItemText,
-    setActiveItemText,
-}) => {
+const ToDoChanging = ({ updateTodo, activeItemTitle, activeItemText }) => {
     // In the right the user should
     //  be able to change tasks'
     // content, mark them as
     // 'waiting', 'in process' and 'done'
-
-    // Functions
-    const updateTodo = (change) => {
-        // This function changes text/title of the active item in the todos object, sets the activeItemTitle/activeItemText, automatically rerendering the page afterwards
-        const newTodos = [...todos];
-        switch (change) {
-            case 'title':
-                newTodos[activeItem].title = document.querySelector(
-                    '#toDoChanging__RedactingTitle'
-                ).value;
-                setActiveItemTitle(
-                    document.querySelector('#toDoChanging__RedactingTitle')
-                        .value
-                );
-                break;
-            default:
-                newTodos[activeItem].text = document.querySelector(
-                    '#toDoChanging__RedactingText'
-                ).value;
-                setActiveItemText(
-                    document.querySelector('#toDoChanging__RedactingText').value
-                );
-                break;
-        }
-        setTodos(newTodos);
-    };
 
     // States
 
@@ -70,6 +36,7 @@ const ToDoChanging = ({
                     id="toDoChanging__RedactingTitle"
                     defaultValue={activeItemTitle}
                     autoFocus={true}
+                    maxLength="20"
                     className={styles.toDoChanging__RedactingTitle}
                     onBlur={titleUnclicked}
                     onKeyUp={titleKeyUp}
