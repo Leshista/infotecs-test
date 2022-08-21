@@ -13,23 +13,6 @@ const ToDoList = ({
     // In the left block the user should be
     // able to choose tasks, add and delete them
 
-    // Functions
-    const shouldBeHidden = () => {
-        setInterval(() => {
-            const toDoList = document.querySelector(`.${styles.toDoList}`);
-            const [...tasks] = toDoList.querySelectorAll('article');
-            tasks.forEach((element) => {
-                const p = element.querySelector('p');
-                if (element.scrollWidth > toDoList.scrollWidth) {
-                    // p.classList.toggle(`.${styles.hidden}`);
-                    const result = p.innerHTML.slice(0, p.innerHTML.length - 3);
-                    setActiveItemTitle(result);
-                }
-            });
-        }, 0);
-    };
-    shouldBeHidden();
-
     // Handlers
     const addTodoHandler = () => {
         setTodos([

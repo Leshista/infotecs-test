@@ -36,7 +36,7 @@ const ToDoChanging = ({ updateTodo, activeItemTitle, activeItemText }) => {
                     id="toDoChanging__RedactingTitle"
                     defaultValue={activeItemTitle}
                     autoFocus={true}
-                    maxLength="20"
+                    maxLength="19"
                     className={styles.toDoChanging__RedactingTitle}
                     onBlur={titleUnclicked}
                     onKeyUp={titleKeyUp}
