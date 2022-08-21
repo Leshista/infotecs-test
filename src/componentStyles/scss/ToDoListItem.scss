@@ -1,5 +1,6 @@
 .toDoList__Item {
     display: flex;
+    justify-content: space-around;
     padding: 1rem 2rem;
     font-size: 3rem;
     line-height: 2;
@@ -19,7 +20,7 @@
 }
 .progress {
     display: flex;
-    margin-left: 2rem;
+    margin-left: 1rem;
     &__waiting {
         img {
             width: 3rem;

@@ -12,6 +12,7 @@ const ToDoListItem = ({
 }) => {
     // States
     const [isActive, setIsActive] = useState(false);
+    const [color, setColor] = useState('#BFA2DB');
 
     // Handlers
     const activateItemHandler = () => {
@@ -24,10 +25,27 @@ const ToDoListItem = ({
             setIsActive(true);
         }, 0);
     };
+
     const deactivateItemHandler = () => {
         setTimeout(() => {
             setIsActive(false);
         }, 0);
+    };
+
+    const changeColorHandler = (color) => {
+        switch (color) {
+            case 'inProgress':
+                setColor('#FEA5AD');
+                break;
+
+            case 'done':
+                setColor('#801336');
+                break;
+
+            default:
+                setColor('#BFA2DB');
+                break;
+        }
     };
 
     return (
@@ -38,26 +56,35 @@ const ToDoListItem = ({
             style={
                 isActive
                     ? { backgroundColor: '#BE8ABF' }
-                    : { backgroundColor: '#BFA2DB' } // This'll highlight/unhighlight task based on activeItem state
+                    : { backgroundColor: color } // This'll highlight/unhighlight task based on activeItem state
             }
             onPointerLeave={deactivateItemHandler}
         >
             <p className={styles.toDoList__text}>{title}</p>
             {isActive ? (
                 <div className={styles.progress}>
-                    <div className={styles.progress__waiting}>
+                    <div
+                        className={styles.progress__waiting}
+                        onClick={() => changeColorHandler('waiting')}
+                    >
                         <img
                             src="https://pic.onlinewebfonts.com/svg/img_295843.png"
                             alt="Waiting"
                         />
                     </div>
-                    <div className={styles.progress__inprogress}>
+                    <div
+                        className={styles.progress__inprogress}
+                        onClick={() => changeColorHandler('inProgress')}
+                    >
                         <img
                             src="http://cdn.onlinewebfonts.com/svg/img_567202.png"
                             alt="In process"
                         />
                     </div>
-                    <div className={styles.progress__done}>
+                    <div
+                        className={styles.progress__done}
+                        onClick={() => changeColorHandler('done')}
+                    >
                         <img
                             src="https://webstockreview.net/images/clipboard-clipart-tick-11.png"
                             alt="Done"
