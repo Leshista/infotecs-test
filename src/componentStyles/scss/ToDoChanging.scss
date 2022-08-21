@@ -1,8 +1,11 @@
 .toDoChanging {
+    grid-area: changing;
+    height: 80vh;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     &__Title {
         font-size: 5rem;
         line-height: 1.5;
@@ -22,17 +25,15 @@
     }
     &__Text {
         padding: 1rem 2rem;
-        font-size: 3rem;
+        font-size: 2.5rem;
         line-height: 1.5;
     }
     &__RedactingText {
         resize: none;
-        margin-left: 1rem 2rem;
-        padding: 2rem;
-        font-size: 3rem;
-        line-height: 0.8;
-        width: 90%;
-        text-align: center;
+        padding: 1rem 2rem;
+        font-size: 2.5rem;
+        line-height: 1.5;
+        width: 95.7%;
         border: none;
         outline: none;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",

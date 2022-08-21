@@ -85,7 +85,7 @@ const ToDoChanging = ({
             {textIsClicked ? (
                 <textarea
                     name=""
-                    rows="5"
+                    rows="25"
                     id="toDoChanging__RedactingText"
                     defaultValue={activeItemText}
                     autoFocus={true}

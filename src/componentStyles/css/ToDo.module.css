@@ -1,1 +1,1 @@
-.toDo{display:grid;grid-template-columns:1fr 4fr;gap:3.5rem}
+.toDo{display:grid;grid-template-columns:1fr 4fr;grid-template-areas:"list changing" ". changing";gap:3.5rem}

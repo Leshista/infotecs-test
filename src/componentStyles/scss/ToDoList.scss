@@ -1,6 +1,7 @@
 .toDoList {
+    grid-area: list;
     resize: horizontal;
-    overflow: auto;
+    overflow: hidden;
     max-width: 100rem;
     min-width: fit-content;
     border: 1px solid black;
