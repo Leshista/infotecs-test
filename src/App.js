@@ -7,7 +7,7 @@ const App = () => {
     return (
         <>
             <header className={styles.header}>
-                <h1 className={styles.title}>React To Do List</h1>
+                <h1 className={styles.title}>Comfy Journal</h1>
             </header>
             <ToDo />
         </>

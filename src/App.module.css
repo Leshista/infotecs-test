@@ -14,8 +14,9 @@ body {
     text-align: center;
     font-size: 6rem;
     font-weight: bolder;
-    margin: 2rem auto;
+    margin: 2rem auto 3rem auto;
     color: #f0d9ff;
+    cursor: default;
 }
 .main {
 }

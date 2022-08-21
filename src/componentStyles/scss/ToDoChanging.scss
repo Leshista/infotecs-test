@@ -13,6 +13,11 @@
         line-height: 1.5;
         font-weight: bold;
         text-align: center;
+        transition-property: font-size;
+        transition-duration: 500ms;
+        &:hover {
+            font-size: 5.5rem;
+        }
     }
     &__RedactingTitle {
         color: darken(#f0d9ff, 10%);
@@ -38,6 +43,11 @@
         padding: 1rem 2rem;
         font-size: 2.5rem;
         line-height: 1.5;
+        transition-property: font-size;
+        transition-duration: 500ms;
+        &:hover {
+            font-size: 2.55rem;
+        }
     }
     &__RedactingText {
         background: lighten(#2b2e4a, 20%);
