@@ -20,13 +20,16 @@ const ToDo = () => {
                         .value
                 );
                 break;
-            default:
+            case 'text':
                 newTodos[activeItem].text = document.querySelector(
                     '#toDoChanging__RedactingText'
                 ).value;
                 setActiveItemText(
                     document.querySelector('#toDoChanging__RedactingText').value
                 );
+                break;
+            default:
+                newTodos[activeItem].progress = change;
                 break;
         }
         setTodos(newTodos);

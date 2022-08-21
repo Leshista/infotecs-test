@@ -47,6 +47,7 @@ const ToDoList = ({
                     setActiveItem={setActiveItem}
                     setActiveItemTitle={setActiveItemTitle}
                     setActiveItemText={setActiveItemText}
+                    updateTodo={updateTodo}
                 />
             ))}
             {/* Add and Delete buttons */}

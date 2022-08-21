@@ -9,6 +9,7 @@ const ToDoListItem = ({
     text,
     setActiveItemTitle,
     setActiveItemText,
+    updateTodo,
 }) => {
     // States
     const [isActive, setIsActive] = useState(false);
@@ -36,14 +37,17 @@ const ToDoListItem = ({
         switch (color) {
             case 'inProgress':
                 setColor('#FEA5AD');
+                updateTodo('inProgress');
                 break;
 
             case 'done':
                 setColor('#801336');
+                updateTodo('done');
                 break;
 
             default:
                 setColor('#BFA2DB');
+                updateTodo('waiting');
                 break;
         }
     };
