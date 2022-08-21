@@ -57,11 +57,7 @@ const ToDoListItem = ({
             className={styles.toDoList__Item}
             onClick={activateItemHandler}
             id={id}
-            style={
-                isActive
-                    ? { backgroundColor: '#BE8ABF' }
-                    : { backgroundColor: color } // This'll highlight/unhighlight task based on activeItem state
-            }
+            style={{ backgroundColor: color }}
             onPointerLeave={deactivateItemHandler}
         >
             <p className={styles.toDoList__text}>{title}</p>

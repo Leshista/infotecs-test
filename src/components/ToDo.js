@@ -37,6 +37,8 @@ const ToDo = () => {
 
     // States
     const [todos, setTodos] = useState([]); // Render todos based on object with all the todos
+    const [filter, setFilter] = useState('New Task');
+    const [filteredTodos, setFilteredTodos] = useState([]);
     const [activeItem, setActiveItem] = useState(); // This'll allow selection of task and redacting it
     const [activeItemTitle, setActiveItemTitle] = useState(''); // This states allow to not loose tasks' content
     const [activeItemText, setActiveItemText] = useState('');
@@ -47,6 +49,10 @@ const ToDo = () => {
                 todos={todos}
                 setTodos={setTodos}
                 updateTodo={updateTodo}
+                setFilter={setFilter}
+                filter={filter}
+                filteredTodos={filteredTodos}
+                setFilteredTodos={setFilteredTodos}
                 activeItem={activeItem}
                 setActiveItem={setActiveItem}
                 activeItemTitle={activeItemTitle}

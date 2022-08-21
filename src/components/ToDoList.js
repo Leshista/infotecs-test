@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import styles from '../componentStyles/css/ToDoList.module.css';
 import ToDoListItem from './ToDoListItem';
 
@@ -5,6 +6,10 @@ const ToDoList = ({
     todos,
     setTodos,
     updateTodo,
+    setFilter,
+    filter,
+    filteredTodos,
+    setFilteredTodos,
     activeItem,
     setActiveItem,
     setActiveItemTitle,
@@ -12,6 +17,11 @@ const ToDoList = ({
 }) => {
     // In the left block the user should be
     // able to choose tasks, add and delete them
+
+    // Effects
+    useEffect(() => {
+        setFilterHandler();
+    }, [todos, filter]);
 
     // Handlers
     const addTodoHandler = () => {
@@ -26,6 +36,12 @@ const ToDoList = ({
     }; // Add enw todo to the object; Object is a state, so it wil autorender
     const deleteTodoHandler = () =>
         setTodos(todos.filter((todo) => todo.id !== activeItem)); // Delete todo from object via filtering it
+    const setFilterHandler = () => {
+        setFilter(document.querySelector(`.${styles.toDoList__Search}`).value);
+        setFilteredTodos(
+            todos.filter((todo) => String(Object.values(todo)).includes(filter))
+        );
+    };
 
     return (
         <aside className={styles.toDoList}>
@@ -35,9 +51,10 @@ const ToDoList = ({
                 name=""
                 id=""
                 className={styles.toDoList__Search}
+                onKeyUp={setFilterHandler}
             />
             {/* Mapping todos object and rendering tasks */}
-            {todos.map((todo) => (
+            {filteredTodos.map((todo) => (
                 <ToDoListItem
                     id={todo.id}
                     key={todo.id}
