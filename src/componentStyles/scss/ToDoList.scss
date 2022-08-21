@@ -3,12 +3,16 @@
     resize: horizontal;
     overflow: hidden;
     min-width: 30rem;
-    border: 1px solid black;
+    max-width: 100rem;
+    border-radius: 15px;
+    background: lighten(#53354a, 20%);
     &__Search {
         margin: 2rem 2rem 0 2rem;
         padding: 0.5rem;
-        width: 84%;
+        width: 90%;
         font-size: 3rem;
+        border-radius: 10px;
+        background-color: #f0d9ff;
     }
     &__Buttons {
         display: grid;
@@ -19,8 +23,12 @@
     }
     &__Add {
         font-size: 3rem;
+        background-color: #f0d9ff;
+        border-radius: 15px;
     }
     &__Delete {
         font-size: 3rem;
+        background-color: #f0d9ff;
+        border-radius: 15px;
     }
 }

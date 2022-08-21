@@ -1,17 +1,21 @@
 html {
     font-size: 10px;
+    height: 100%;
 }
 body {
     max-width: 192rem;
     margin: 0 auto;
     padding: 0 5rem;
     overflow: hidden;
+    background-size: cover;
+    background: linear-gradient(135deg, #53354a 30%, #2b2e4a);
 }
 .title {
     text-align: center;
     font-size: 6rem;
     font-weight: bolder;
     margin: 2rem auto;
+    color: #f0d9ff;
 }
 .main {
 }

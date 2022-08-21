@@ -27,8 +27,8 @@ const ToDoListItem = ({
             id={id}
             style={
                 activeItem === id
-                    ? { backgroundColor: 'red' }
-                    : { backgroundColor: 'white' } // This'll highlight/unhighlight task based on activeItem state
+                    ? { backgroundColor: '#BE8ABF' }
+                    : { backgroundColor: '#BFA2DB' } // This'll highlight/unhighlight task based on activeItem state
             }
         >
             <p className={styles.toDoList__text}>{title}</p>

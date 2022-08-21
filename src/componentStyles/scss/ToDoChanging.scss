@@ -1,17 +1,22 @@
 .toDoChanging {
     grid-area: changing;
     height: 80vh;
-    border: 1px solid black;
+    min-width: 30vw;
+    background: lighten(#2b2e4a, 20%);
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     &__Title {
+        color: #f0d9ff;
         font-size: 5rem;
         line-height: 1.5;
         font-weight: bold;
         text-align: center;
     }
     &__RedactingTitle {
+        color: darken(#f0d9ff, 10%);
+        background: lighten(#2b2e4a, 25%);
         font-size: 5rem;
         line-height: 1.47;
         font-weight: bold;
@@ -24,11 +29,14 @@
         -moz-osx-font-smoothing: grayscale;
     }
     &__Text {
+        color: #f0d9ff;
         padding: 1rem 2rem;
         font-size: 2.5rem;
         line-height: 1.5;
     }
     &__RedactingText {
+        background: lighten(#2b2e4a, 25%);
+        color: darken(#f0d9ff, 10%);
         resize: none;
         padding: 1rem 2rem;
         font-size: 2.5rem;
