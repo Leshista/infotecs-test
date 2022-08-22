@@ -81,7 +81,7 @@ const ToDoListItem = ({
                         onClick={() => changeProgressHandler('waiting')}
                     >
                         <img
-                            src="https://pic.onlinewebfonts.com/svg/img_295843.png"
+                            src={require('../images/waiting.png')}
                             alt="Waiting"
                         />
                     </div>
@@ -90,7 +90,7 @@ const ToDoListItem = ({
                         onClick={() => changeProgressHandler('inProgress')}
                     >
                         <img
-                            src="http://cdn.onlinewebfonts.com/svg/img_567202.png"
+                            src={require('../images/inProgress.png')}
                             alt="In process"
                         />
                     </div>
@@ -98,10 +98,7 @@ const ToDoListItem = ({
                         className={styles.progress__done}
                         onClick={() => changeProgressHandler('done')}
                     >
-                        <img
-                            src="https://webstockreview.net/images/clipboard-clipart-tick-11.png"
-                            alt="Done"
-                        />
+                        <img src={require('../images/done.png')} alt="Done" />
                     </div>
                 </div>
             ) : null}

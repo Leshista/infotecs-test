@@ -84,19 +84,13 @@ const ToDoList = ({
             {/* Add and Delete buttons */}
             <div className={styles.toDoList__Buttons}>
                 <div className={styles.toDoList__Add} onClick={addTodoHandler}>
-                    <img
-                        src="http://cdn.onlinewebfonts.com/svg/img_517324.png"
-                        alt="Add"
-                    />
+                    <img src={require('../images/add.png')} alt="Add" />
                 </div>
                 <div
                     className={styles.toDoList__Delete}
                     onClick={deleteTodoHandler}
                 >
-                    <img
-                        src="https://www.pinclipart.com/picdir/big/315-3152807_trash-comments-clipart.png"
-                        alt="Delete"
-                    />
+                    <img src={require('../images/delete.png')} alt="Delete" />
                 </div>
             </div>
         </aside>
