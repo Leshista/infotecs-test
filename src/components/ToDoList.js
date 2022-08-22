@@ -17,7 +17,8 @@ const ToDoList = ({
     setActiveItemText,
 }) => {
     // In the left block the user should be
-    // able to choose todos, add and delete them
+    // able to choose todos, add and delete them,
+    // also changing their progress status
 
     // Effects
     useEffect(() => {

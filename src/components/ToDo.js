@@ -52,6 +52,7 @@ const ToDo = () => {
         getLocalTodos();
     }, []);
     const saveLocalTodos = () =>
+        // Had to use this lifehack; Without it save function worked before the load function had the chance to complete
         todos.length >= 1
             ? localStorage.setItem('todos', JSON.stringify(todos))
             : null;

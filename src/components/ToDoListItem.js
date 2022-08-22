@@ -13,7 +13,6 @@ const ToDoListItem = ({
 }) => {
     // States
     const [isActive, setIsActive] = useState(false); // Remembers active todo for styling purposes
-    const [color, setColor] = useState('#BFA2DB'); // Remembers this todo's background color
 
     // Handlers
     const activateItemHandler = () => {
