@@ -15,15 +15,15 @@ const ToDoChanging = ({ updateTodo, activeItemTitle, activeItemText }) => {
     // Handlers
 
     // The handlers below are for setting on/off 'clicked' state
-    const titleClicked = () => setTitleIsClicked(true);
-    const titleUnclicked = () => setTitleIsClicked(false);
-    const textClicked = () => setTextIsClicked(true);
-    const textUnclicked = () => setTextIsClicked(false);
+    const titleClickedHandler = () => setTitleIsClicked(true);
+    const titleUnclickedHandler = () => setTitleIsClicked(false);
+    const textClickedHandler = () => setTextIsClicked(true);
+    const textUnclickedHandler = () => setTextIsClicked(false);
 
     // The handlers below are waiting for input on input/textarea and update the values or remove focus from items based on key pressed
-    const titleKeyUp = (e) =>
+    const titleKeyUpHandler = (e) =>
         e.key === 'Enter' ? setTitleIsClicked(false) : updateTodo('title');
-    const textKeyUp = (e) =>
+    const textKeyUpHandler = (e) =>
         e.key === 'Enter' ? setTextIsClicked(false) : updateTodo('text');
 
     return (
@@ -38,13 +38,13 @@ const ToDoChanging = ({ updateTodo, activeItemTitle, activeItemText }) => {
                     autoFocus={true}
                     maxLength="30"
                     className={styles.toDoChanging__RedactingTitle}
-                    onBlur={titleUnclicked}
-                    onKeyUp={titleKeyUp}
+                    onBlur={titleUnclickedHandler}
+                    onKeyUp={titleKeyUpHandler}
                 />
             ) : (
                 <h2
                     className={styles.toDoChanging__Title}
-                    onClick={titleClicked}
+                    onClick={titleClickedHandler}
                 >
                     {activeItemTitle}
                 </h2>
@@ -57,11 +57,14 @@ const ToDoChanging = ({ updateTodo, activeItemTitle, activeItemText }) => {
                     defaultValue={activeItemText}
                     autoFocus={true}
                     className={styles.toDoChanging__RedactingText}
-                    onBlur={textUnclicked}
-                    onKeyUp={textKeyUp}
+                    onBlur={textUnclickedHandler}
+                    onKeyUp={textKeyUpHandler}
                 ></textarea>
             ) : (
-                <p className={styles.toDoChanging__Text} onClick={textClicked}>
+                <p
+                    className={styles.toDoChanging__Text}
+                    onClick={textClickedHandler}
+                >
                     {activeItemText}
                 </p>
             )}
