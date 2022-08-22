@@ -25,7 +25,7 @@ const ToDoList = ({
         // Watches for todos/filter changes and executes setFIlterHandler() if changes happened. Maintains the render of filteredTodos
         setFilterHandler();
         saveLocalTodos();
-    }, [todos, filter, saveLocalTodos, setFilterHandler]);
+    }, [todos, filter]);
 
     // Handlers
     const addTodoHandler = () => {
