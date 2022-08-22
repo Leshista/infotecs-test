@@ -4,11 +4,11 @@ import ToDoChanging from './ToDoChanging';
 import ToDoList from './ToDoList';
 
 const ToDo = () => {
-    // I split the whole container into two blocks
+    // Container for the whole program
 
     // Functions
     const updateTodo = (change) => {
-        // This function changes text/title of the active item in the todos object, sets the activeItemTitle/activeItemText, automatically rerendering the page afterwards
+        // This function changes text/title/progress values of the active item in the todos object, sets the activeItemTitle/activeItemText, automatically rerendering the page afterwards
         const newTodos = [...todos];
         switch (change) {
             case 'title':
@@ -36,11 +36,11 @@ const ToDo = () => {
     };
 
     // States
-    const [todos, setTodos] = useState([]); // Render todos based on object with all the todos
-    const [filter, setFilter] = useState('');
-    const [filteredTodos, setFilteredTodos] = useState([]);
-    const [activeItem, setActiveItem] = useState(); // This'll allow selection of task and redacting it
-    const [activeItemTitle, setActiveItemTitle] = useState(''); // This states allow to not loose tasks' content
+    const [todos, setTodos] = useState([]); // Original todos array, all item within are todos, which will be rendered after filtering via filteredTodos state
+    const [filter, setFilter] = useState(''); // Needed for filtering todos based on search result
+    const [filteredTodos, setFilteredTodos] = useState([]); // A new array of todos, which will be rendered to appear on the page
+    const [activeItem, setActiveItem] = useState(); // This'll allow selection of todo and redacting it
+    const [activeItemTitle, setActiveItemTitle] = useState(''); // This states allow to not loose todos' content
     const [activeItemText, setActiveItemText] = useState('');
 
     return (

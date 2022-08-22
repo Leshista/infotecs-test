@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from '../componentStyles/css/ToDoChanging.module.css';
 const ToDoChanging = ({ updateTodo, activeItemTitle, activeItemText }) => {
     // In the right the user should
-    //  be able to change tasks'
+    //  be able to change todos'
     // content, mark them as
     // 'waiting', 'in process' and 'done'
 

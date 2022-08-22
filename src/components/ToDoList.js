@@ -16,27 +16,31 @@ const ToDoList = ({
     setActiveItemText,
 }) => {
     // In the left block the user should be
-    // able to choose tasks, add and delete them
+    // able to choose todos, add and delete them
 
     // Effects
     useEffect(() => {
+        // Watches for todos/filter changes and executes setFIlterHandler() if changes happened. Maintains the render of filteredTodos
         setFilterHandler();
     }, [todos, filter]);
 
     // Handlers
     const addTodoHandler = () => {
+        // Adds new todo to the object; todos a state, so page wil autorerender
         setTodos([
             ...todos,
             {
                 id: todos.length,
-                title: 'New Task',
+                title: 'New todo',
                 text: 'Please, write something!',
             },
         ]);
-    }; // Add enw todo to the object; Object is a state, so it wil autorender
+    };
     const deleteTodoHandler = () =>
-        setTodos(todos.filter((todo) => todo.id !== activeItem)); // Delete todo from object via filtering it
+        // Delete todo from object via filtering it
+        setTodos(todos.filter((todo) => todo.id !== activeItem));
     const setFilterHandler = () => {
+        // Handler that sets filter and filteredTodos based on input
         setFilter(document.querySelector(`.${styles.toDoList__Search}`).value);
         setFilteredTodos(
             todos.filter((todo) => String(Object.values(todo)).includes(filter))
@@ -53,14 +57,13 @@ const ToDoList = ({
                 className={styles.toDoList__Search}
                 onKeyUp={setFilterHandler}
             />
-            {/* Mapping todos object and rendering tasks */}
+            {/* Mapping filteredTodos and rendering todos of its objects */}
             {filteredTodos.map((todo) => (
                 <ToDoListItem
                     id={todo.id}
                     key={todo.id}
                     title={todo.title}
                     text={todo.text}
-                    activeItem={activeItem}
                     setActiveItem={setActiveItem}
                     setActiveItemTitle={setActiveItemTitle}
                     setActiveItemText={setActiveItemText}

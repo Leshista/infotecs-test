@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styles from '../componentStyles/css/ToDoListItem.module.css';
 
 const ToDoListItem = ({
-    activeItem,
     setActiveItem,
     id,
     title,
@@ -12,12 +11,12 @@ const ToDoListItem = ({
     updateTodo,
 }) => {
     // States
-    const [isActive, setIsActive] = useState(false);
-    const [color, setColor] = useState('#BFA2DB');
+    const [isActive, setIsActive] = useState(false); // Remembers active todo for styling purposes
+    const [color, setColor] = useState('#BFA2DB'); // Remembers this todo's background color
 
     // Handlers
     const activateItemHandler = () => {
-        // When the user clicks on tasks it'll become active and highlighted
+        // When the user clicks on todo it'll become active and highlighted
         // Also it sets the states responsible for remembering content
         setTimeout(() => {
             setActiveItem(id);
@@ -28,12 +27,14 @@ const ToDoListItem = ({
     };
 
     const deactivateItemHandler = () => {
+        // The name speaks for itself
         setTimeout(() => {
             setIsActive(false);
         }, 0);
     };
 
     const changeColorHandler = (color) => {
+        // Sets color and progress status of the todo after press of the corresponding button on the todo; Updates todos state afterwards
         switch (color) {
             case 'inProgress':
                 setColor('#FEA5AD');
@@ -61,6 +62,7 @@ const ToDoListItem = ({
             onPointerLeave={deactivateItemHandler}
         >
             <p className={styles.toDoList__text}>{title}</p>
+            {/* Conditional rendering of condition markers, visible only if todo is active */}
             {isActive ? (
                 <div className={styles.progress}>
                     <div
