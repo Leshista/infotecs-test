@@ -45,7 +45,7 @@ const ToDo = () => {
 
     // Loading and saving todos; They'll be there when page'll reload
     const getLocalTodos = () => {
-        const localTodos = JSON.parse(localStorage.getItem('todos' || []));
+        const localTodos = JSON.parse(localStorage.getItem('todos'));
         setTodos(localTodos);
     };
     useEffect(() => {
