@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../componentStyles/css/ToDo.module.css';
 import ToDoChanging from './ToDoChanging';
 import ToDoList from './ToDoList';
@@ -43,6 +43,20 @@ const ToDo = () => {
     const [activeItemTitle, setActiveItemTitle] = useState(''); // This states allow to not loose todos' content
     const [activeItemText, setActiveItemText] = useState('');
 
+    // Loading and saving todos; They'll be there when page'll reload
+    const getLocalTodos = () => {
+        const localTodos = JSON.parse(localStorage.getItem('todos'));
+        setTodos(localTodos);
+    };
+    useEffect(() => {
+        getLocalTodos();
+    }, []);
+    const saveLocalTodos = () =>
+        todos.length >= 1
+            ? localStorage.setItem('todos', JSON.stringify(todos))
+            : null;
+    // Run once when app starts to get saved todos
+
     return (
         <main className={styles.toDo}>
             <ToDoList
@@ -53,6 +67,7 @@ const ToDo = () => {
                 filter={filter}
                 filteredTodos={filteredTodos}
                 setFilteredTodos={setFilteredTodos}
+                saveLocalTodos={saveLocalTodos}
                 activeItem={activeItem}
                 setActiveItem={setActiveItem}
                 activeItemTitle={activeItemTitle}

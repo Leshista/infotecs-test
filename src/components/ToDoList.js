@@ -10,6 +10,7 @@ const ToDoList = ({
     filter,
     filteredTodos,
     setFilteredTodos,
+    saveLocalTodos,
     activeItem,
     setActiveItem,
     setActiveItemTitle,
@@ -22,23 +23,31 @@ const ToDoList = ({
     useEffect(() => {
         // Watches for todos/filter changes and executes setFIlterHandler() if changes happened. Maintains the render of filteredTodos
         setFilterHandler();
+        saveLocalTodos();
     }, [todos, filter]);
 
     // Handlers
     const addTodoHandler = () => {
         // Adds new todo to the object; todos a state, so page wil autorerender
-        setTodos([
-            ...todos,
-            {
-                id: todos.length,
-                title: 'New todo',
-                text: 'Please, write something!',
-            },
-        ]);
+        if (todos.length !== 6) {
+            setTodos([
+                ...todos,
+                {
+                    id: todos.length,
+                    title: 'New todo',
+                    text: 'Please, write something!',
+                },
+            ]);
+        }
     };
-    const deleteTodoHandler = () =>
+    const deleteTodoHandler = () => {
         // Delete todo from object via filtering it
         setTodos(todos.filter((todo) => todo.id !== activeItem));
+        if (todos.length === 1) {
+            // Has to implement this because setLocalTodos don't work after length drops to 1
+            localStorage.setItem('todos', JSON.stringify([]));
+        }
+    };
     const setFilterHandler = () => {
         // Handler that sets filter and filteredTodos based on input
         setFilter(document.querySelector(`.${styles.toDoList__Search}`).value);
@@ -60,6 +69,7 @@ const ToDoList = ({
             {/* Mapping filteredTodos and rendering todos of its objects */}
             {filteredTodos.map((todo) => (
                 <ToDoListItem
+                    todos={todos}
                     id={todo.id}
                     key={todo.id}
                     title={todo.title}

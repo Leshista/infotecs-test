@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from '../componentStyles/css/ToDoListItem.module.css';
 
 const ToDoListItem = ({
+    todos,
     setActiveItem,
     id,
     title,
@@ -33,23 +34,30 @@ const ToDoListItem = ({
         }, 0);
     };
 
-    const changeColorHandler = (color) => {
-        // Sets color and progress status of the todo after press of the corresponding button on the todo; Updates todos state afterwards
-        switch (color) {
+    const changeProgressHandler = (progress) => {
+        // Sets progress status of the todo after press of the corresponding button on the todo; Updates todos state afterwards
+        switch (progress) {
             case 'inProgress':
-                setColor('#FEA5AD');
                 updateTodo('inProgress');
                 break;
 
             case 'done':
-                setColor('#801336');
                 updateTodo('done');
                 break;
 
             default:
-                setColor('#BFA2DB');
                 updateTodo('waiting');
                 break;
+        }
+    };
+    const checkColor = (progress) => {
+        switch (progress) {
+            case 'inProgress':
+                return '#FEA5AD';
+            case 'done':
+                return '#801336';
+            default:
+                return '#BFA2DB';
         }
     };
 
@@ -58,7 +66,11 @@ const ToDoListItem = ({
             className={styles.toDoList__Item}
             onClick={activateItemHandler}
             id={id}
-            style={{ backgroundColor: color }}
+            style={
+                todos[id]
+                    ? { backgroundColor: checkColor(todos[id].progress) }
+                    : { backgroundColor: '#BFA2DB' }
+            }
             onPointerLeave={deactivateItemHandler}
         >
             <p className={styles.toDoList__text}>{title}</p>
@@ -67,7 +79,7 @@ const ToDoListItem = ({
                 <div className={styles.progress}>
                     <div
                         className={styles.progress__waiting}
-                        onClick={() => changeColorHandler('waiting')}
+                        onClick={() => changeProgressHandler('waiting')}
                     >
                         <img
                             src="https://pic.onlinewebfonts.com/svg/img_295843.png"
@@ -76,7 +88,7 @@ const ToDoListItem = ({
                     </div>
                     <div
                         className={styles.progress__inprogress}
-                        onClick={() => changeColorHandler('inProgress')}
+                        onClick={() => changeProgressHandler('inProgress')}
                     >
                         <img
                             src="http://cdn.onlinewebfonts.com/svg/img_567202.png"
@@ -85,7 +97,7 @@ const ToDoListItem = ({
                     </div>
                     <div
                         className={styles.progress__done}
-                        onClick={() => changeColorHandler('done')}
+                        onClick={() => changeProgressHandler('done')}
                     >
                         <img
                             src="https://webstockreview.net/images/clipboard-clipart-tick-11.png"
