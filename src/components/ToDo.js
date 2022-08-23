@@ -53,11 +53,17 @@ const ToDo = () => {
     useEffect(() => {
         getLocalTodos();
     }, []);
-    const saveLocalTodos = () =>
-        // Had to use this lifehack; Without it save function worked before the load function had the chance to complete
-        todos.length >= 1
-            ? localStorage.setItem('todos', JSON.stringify(todos))
-            : null;
+    const saveLocalTodos = () => {
+        if (todos.length >= 1) {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        } else {
+            // Clears the changing parts if there's no todos left
+            setActiveItemTitle('');
+            setActiveItemText('');
+        }
+    };
+    // Had to use this lifehack; Without it save function worked before the load function had the chance to complete
+
     // Run once when app starts to get saved todos
 
     return (

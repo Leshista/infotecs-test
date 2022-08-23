@@ -43,6 +43,13 @@ const ToDoList = ({
     };
     const deleteTodoHandler = () => {
         // Delete todo from object via filtering it
+        if (todos[activeItem]) {
+            // Clears the changing parts if active todo was deleted
+            if (todos[activeItem].id === activeItem) {
+                setActiveItemTitle('');
+                setActiveItemText('');
+            }
+        }
         setTodos(todos.filter((todo) => todo.id !== activeItem));
         if (todos.length === 1) {
             // Has to implement this because setLocalTodos don't work after length drops to 1
