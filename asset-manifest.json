@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/infotecs-test/static/css/main.dcb59e24.css",
-    "main.js": "/infotecs-test/static/js/main.1439468b.js",
+    "main.js": "/infotecs-test/static/js/main.96c809af.js",
     "static/media/done.png": "/infotecs-test/static/media/done.66a2263d54dbdb19ce3d.png",
     "static/media/delete.png": "/infotecs-test/static/media/delete.8d5f18b5c2b3ad492ba3.png",
     "static/media/waiting.png": "/infotecs-test/static/media/waiting.96ca49670c4916f163ad.png",
@@ -9,10 +9,10 @@
     "static/media/inProgress.png": "/infotecs-test/static/media/inProgress.30e2b880b44299b8c172.png",
     "index.html": "/infotecs-test/index.html",
     "main.dcb59e24.css.map": "/infotecs-test/static/css/main.dcb59e24.css.map",
-    "main.1439468b.js.map": "/infotecs-test/static/js/main.1439468b.js.map"
+    "main.96c809af.js.map": "/infotecs-test/static/js/main.96c809af.js.map"
   },
   "entrypoints": [
     "static/css/main.dcb59e24.css",
-    "static/js/main.1439468b.js"
+    "static/js/main.96c809af.js"
   ]
 }
