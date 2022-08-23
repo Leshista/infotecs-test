@@ -6,7 +6,9 @@
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     &__Title {
         color: #f0d9ff;
         font-size: 5rem;

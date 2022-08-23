@@ -14,7 +14,9 @@
 .toDoList {
     grid-area: list;
     resize: horizontal;
-    overflow: hidden;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     min-width: 30rem;
     max-width: 100rem;
     border-radius: 15px;

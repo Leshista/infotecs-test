@@ -30,16 +30,14 @@ const ToDoList = ({
     // Handlers
     const addTodoHandler = () => {
         // Adds new todo to the object; todos a state, so page wil autorerender
-        if (todos.length !== 6) {
-            setTodos([
-                ...todos,
-                {
-                    id: todos.length,
-                    title: 'New todo',
-                    text: 'Please, write something!',
-                },
-            ]);
-        }
+        setTodos([
+            ...todos,
+            {
+                id: todos.length,
+                title: 'New todo',
+                text: 'Please, write something!',
+            },
+        ]);
     };
     const deleteTodoHandler = () => {
         // Delete todo from object via filtering it
