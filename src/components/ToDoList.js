@@ -31,10 +31,18 @@ const ToDoList = ({
     const addTodoHandler = () => {
         // Adds new todo to the object; todos a state, so page wil autorerender
         if (todos.length !== 6) {
+            let newId = todos.length;
+            todos.forEach((todo) => {
+                // Checks if id is already in todos
+                while (Object.values(todo).includes(newId)) {
+                    console.log('includes');
+                    newId++;
+                }
+            });
             setTodos([
                 ...todos,
                 {
-                    id: todos.length,
+                    id: newId,
                     title: 'New todo',
                     text: 'Please, write something!',
                 },
