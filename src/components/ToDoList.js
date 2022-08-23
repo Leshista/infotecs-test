@@ -31,17 +31,10 @@ const ToDoList = ({
     const addTodoHandler = () => {
         // Adds new todo to the object; todos a state, so page wil autorerender
         if (todos.length !== 6) {
-            let newId = todos.length;
-            todos.forEach((todo) => {
-                // Checks if id is already in todos
-                while (Object.values(todo).includes(newId)) {
-                    newId++;
-                }
-            });
             setTodos([
                 ...todos,
                 {
-                    id: newId,
+                    id: todos.length,
                     title: 'New todo',
                     text: 'Please, write something!',
                 },
@@ -59,7 +52,7 @@ const ToDoList = ({
         }
         const newTodos = todos.filter((todo) => todo.id !== activeItem);
         setTodos(newTodos);
-        const newerTodos = newTodos;
+        const newerTodos = newTodos; // Todos that were after deleted todo must have their id lessen by 1
         newerTodos.map((todo) =>
             todo['id'] > activeItem
                 ? (todo['id'] = todos.indexOf(todo) - 1)
