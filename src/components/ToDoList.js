@@ -57,7 +57,15 @@ const ToDoList = ({
                 setActiveItemText('');
             }
         }
-        setTodos(todos.filter((todo) => todo.id !== activeItem));
+        const newTodos = todos.filter((todo) => todo.id !== activeItem);
+        setTodos(newTodos);
+        const newerTodos = newTodos;
+        newerTodos.map((todo) =>
+            todo['id'] > activeItem
+                ? (todo['id'] = todos.indexOf(todo) - 1)
+                : null
+        );
+        setTodos(newerTodos);
         if (todos.length === 1) {
             // Has to implement this because setLocalTodos don't work after length drops to 1
             localStorage.setItem('todos', JSON.stringify([]));
