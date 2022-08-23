@@ -35,7 +35,6 @@ const ToDoList = ({
             todos.forEach((todo) => {
                 // Checks if id is already in todos
                 while (Object.values(todo).includes(newId)) {
-                    console.log('includes');
                     newId++;
                 }
             });
